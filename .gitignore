@@ -1,0 +1,6 @@
+/build/
+/build-nix*/
+/build-bear/
+/.bear/
+/compile_commands.json
+/cmake-build-*/
