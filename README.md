@@ -20,6 +20,18 @@ ctest --test-dir build --output-on-failure
 build/pta_ref workload.pta
 ```
 
+Generate a seeded synthetic input with `pta_gen OUTPUT.pta SEED VARS OBJECTS [MAX_CONSTRAINTS_PER_KIND]`, then run it through the reference solver:
+
+```sh
+build/pta_gen /tmp/sample.pta 42 100 60 20
+build/pta_ref /tmp/sample.pta
+```
+
+`ctest` also runs a 300-case parser/solver differential and metamorphic suite.
+Each case checks the reference result with the independent fixed-point
+verifier, then confirms that reordering records and duplicating constraints
+does not change points-to sets or induced edges.
+
 To capture a compilation database with Bear, run configuration and compilation
 inside the same Bear invocation. This lets Bear's macOS wrapper mode see which
 compiler CMake selects:

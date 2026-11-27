@@ -4,3 +4,4 @@
 /.bear/
 /compile_commands.json
 /cmake-build-*/
+.cache/
